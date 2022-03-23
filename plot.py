@@ -8,9 +8,10 @@ start_time = time.time()
 from buyopen_sellclose import buyopen_sellclose
 from buyclose_sellopen import buyclose_sellopen
 from buy_and_hold import buy_and_hold
+from x_axis_labels import generate_x_axis_labels
 
 ticker = 'SPY'
-start_date = '2022-03-03'
+start_date = '2021-03-03'
 end_date = '2022-03-18'
 starting_amount = 10000
 
@@ -18,18 +19,6 @@ starting_amount = 10000
 s1 = buyopen_sellclose(ticker, start_date, end_date, starting_amount)
 s2 = buyclose_sellopen(ticker, start_date, end_date, starting_amount)
 s3 = buy_and_hold(ticker, start_date, end_date, starting_amount)
-
-# Put the dates into a list
-dates = list(s1.keys())
-# portfolio_values = list(s1.values())
-
-# Create an appropriate list of x-axis labels that is dynamic depending on the variability and the date range
-# x_ticks = np.arange(np.datetime64(start_date), np.datetime64(end_date), np.timedelta64(75, 'm'))
-# for i in range(len(dates)):
-#     if dates[i][-2:] == '01':
-#         x_ticks.append(dates[i])
-    # if i % 30 == 0:
-    #     x_ticks.append(dates[i])
 
 # Plot the data and adjusting the characteristics of the plot
 fig, ax = plt.subplots()
@@ -39,7 +28,9 @@ plt.plot(s3.keys(), s3.values())
 plt.legend(['Day', 'Night', 'Hold'])
 plt.xlabel('Date')
 plt.ylabel('Portfolio Value')
-# ax.set_xticks(x_ticks)
+plt.xticks(rotation = 30, fontsize = 8)
+plt.yticks(fontsize=8)
+ax.set_xticks(generate_x_axis_labels(s1))
 plt.show()
 
 end_time = time.time()

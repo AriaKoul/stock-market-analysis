@@ -12,11 +12,98 @@ def generate_x_axis_labels(a_dict):
     year using months = 12.
     """
     x_axis_labels = []
-    # Increment types: daily, weekly, monthly, quarterly, yearly
-    # If date range is 10 days or less, give every day
+    format = '%Y-%m-%d'
+    days = list(a_dict.keys())
+    num_days = len(days)
+    print(num_days)
 
-    # If date range is 
+    # This displays labels for every day
+    if num_days < 10:
+        for day in days:
+            x_axis_labels.append(day)
 
+    # This displays labels for every other day 
+    if num_days > 9 and num_days < 15:
+        counter = 0
+        for day in days:
+            if counter % 2 == 0:
+                x_axis_labels.append(day)
+            counter += 1
+
+    # This displays labels for every three days
+    if num_days > 14 and num_days < 29:
+        counter = 0
+        for day in days:
+            if counter % 3 == 0:
+                x_axis_labels.append(day)
+            counter += 1
+
+    # This displays labels for the Monday of every week
+    if num_days > 28 and num_days < 61:
+        for day in days:
+            day_of_week = datetime.datetime.strptime(day, format).weekday()
+            if day_of_week % 2 == 0:
+                x_axis_labels.append(day)
+
+    # This displays labels for the Monday of every other week 
+    if num_days > 60 and num_days < 151:
+        counter = 0
+        for day in days:
+            day_of_week = datetime.datetime.strptime(day, format).weekday()
+            if day_of_week == 0:
+                if counter % 2 == 0:
+                    x_axis_labels.append(day)
+                counter += 1
+
+    # This displays labels for the first of every month
+    if num_days > 150 and num_days < 251:
+        for day in days:
+            if day[-2:] == '01':
+                x_axis_labels.append(day)
+            
+    # This displays labels for the first of every other month
+    if num_days > 250 and num_days < 500:
+        counter = 0
+        for day in days:
+            if day[-2:] == '01':
+                if counter % 2 == 0:
+                    x_axis_labels.append(day)
+                counter += 1
+
+    # This displays labels for the first of every third month
+    if num_days > 499 and num_days < 900:
+        counter = 0
+        for day in days:
+            if day[-2:] == '01':
+                if counter % 3 == 0:
+                    x_axis_labels.append(day)
+                counter += 1
+
+    # This displays labels for the first of every sixth month
+    if num_days > 899 and num_days < 1800:
+        counter = 0
+        for day in days:
+            if day[-2:] == '01':
+                if counter % 6 == 0:
+                    x_axis_labels.append(day)
+                counter += 1
+    
+    # This displays labels for the first new month and every year after that
+    if num_days > 1799 and num_days < 3700:
+        counter = 0
+        for day in days:
+            if day[-2:] == '01':
+                if counter % 12 == 0:
+                    x_axis_labels.append(day)
+                counter += 1
+    
+    # This displays labels for the first new month and every two years after that
+    if num_days > 3699:
+        counter = 0
+        for day in days:
+            if day[-2:] == '01':
+                if counter % 24 == 0:
+                    x_axis_labels.append(day)
+                counter += 1
 
     return x_axis_labels
-

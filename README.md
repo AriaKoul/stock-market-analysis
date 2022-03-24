@@ -64,4 +64,6 @@ To install these modules, use the following commands:
 
 `create_plot.py`
 
+`tests.py`
+
 ## Conclusions

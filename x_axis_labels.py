@@ -107,3 +107,30 @@ def generate_x_axis_labels(a_dict):
                 counter += 1
 
     return x_axis_labels
+
+def generate_evenly_spaced_x_axis_labels(a_dict):
+    """
+    alternative method of generating x axis labels
+    """
+    # The below line is where I set the range of number of acceptable labels
+    label_options = range(6,11)
+    days = list(a_dict.keys())
+    num_days = len(days)
+    x_axis_labels = []
+    
+    label_dict = dict()
+    for i in label_options:
+        remainder = num_days % i
+        label_dict[remainder] = i
+
+    num_labels = label_dict.get(min(list(label_dict.keys())))
+    counter = 0
+    for i in range(num_days):
+        counter += 1
+        if counter % (num_days // num_labels) == 0:
+            x_axis_labels.append(days[i])
+
+    print(f'{num_days} entries in list')
+    print(f'Intended number of labels is {num_labels}')
+    print(f'Actual number of labels is {len(x_axis_labels)}')
+    return x_axis_labels

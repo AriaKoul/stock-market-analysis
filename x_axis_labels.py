@@ -130,7 +130,4 @@ def generate_evenly_spaced_x_axis_labels(a_dict):
         if counter % (num_days // num_labels) == 0:
             x_axis_labels.append(days[i])
 
-    print(f'{num_days} entries in list')
-    print(f'Intended number of labels is {num_labels}')
-    print(f'Actual number of labels is {len(x_axis_labels)}')
     return x_axis_labels

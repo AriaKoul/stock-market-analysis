@@ -50,4 +50,18 @@ To install these modules, use the following commands:
 `$ pip install yfinance matplotlib datetime pandas numpy`
 
 ## Description
+`buyopen_sellclose.py`
 
+`buyclose_sellopen.py`
+
+`buy_and_hold.py`
+
+`fill_in_weekends.py`
+
+`x_axis_labels.py`
+
+`plotter.py`
+
+`create_plot.py`
+
+## Conclusions

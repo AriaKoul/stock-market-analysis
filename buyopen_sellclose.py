@@ -1,10 +1,7 @@
-import time
 import yfinance as yf
 import pandas as pd 
 import matplotlib.pyplot as plt 
 from fill_in_weekends import fill_in_weekends 
-
-# start_time = time.time()
 
 def buyopen_sellclose(ticker, start_date, end_date, starting_amount, plot=False):
     """

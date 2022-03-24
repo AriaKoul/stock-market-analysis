@@ -15,7 +15,6 @@ def generate_x_axis_labels(a_dict):
     format = '%Y-%m-%d'
     days = list(a_dict.keys())
     num_days = len(days)
-    print(num_days)
 
     # This displays labels for every day
     if num_days < 10:

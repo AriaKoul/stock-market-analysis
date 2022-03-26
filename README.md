@@ -52,9 +52,15 @@ To install these modules, use the following commands:
 ## Description
 `buyopen_sellclose.py`
 
+This file includes a function for the first strategy: buy the stock at the start of trading hours and sell at the end of trading hours. It calculates the portofolio value at the end of the specified date range for the specific ticker and starting amount using this strategy.  
+
 `buyclose_sellopen.py`
 
+This file includes a function for the second strategy: buy the stock at the end of trading hours and sell at the start of trading hours the next day. It calculates the portfolio value at the end of the specified date range for the specific ticker and starting amount using this strategy. 
+
 `buy_and_hold.py`
+
+This file includes a function for the last strategy: buy the stock at the beginning of the date range and hold it until the end. It calculates the portfolio value at the end of the specified date range for the specific ticker and starting amount using this strategy. 
 
 `fill_in_weekends.py`
 

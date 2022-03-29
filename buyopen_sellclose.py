@@ -12,7 +12,7 @@ def buyopen_sellclose(ticker, start_date, end_date, starting_amount):
 
     df = yf.download(ticker, start=start_date, end=end_date)
     # Saving to a csv and reading from it to generate the data frame because of the "Date" column issue (resulted in a Key Error)
-    df.to_csv("data/sample_data.csv")
+    df.to_csv("data/sample_data.csv") 
     df = pd.read_csv("data/sample_data.csv")
     df['S1 Return'] = df['Close']/df['Open']
 

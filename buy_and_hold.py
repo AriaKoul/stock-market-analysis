@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from fill_in_weekends import fill_in_weekends 
 
-def buy_and_hold(ticker, start_date, end_date, starting_amount, plot=False):
+def buy_and_hold(ticker, start_date, end_date, starting_amount):
     """
     This function takes a ticker, a start date, an end date, a starting amount, and if the user
     wants to plot the output or not. The output of this function is a graph with the x-axis representing
@@ -41,9 +41,5 @@ def buy_and_hold(ticker, start_date, end_date, starting_amount, plot=False):
 
     names = list(portfolio_values.keys())
     values = list(portfolio_values.values())
-
-    if plot:
-        plt.plot(range(len(portfolio_values)), values) # plot does not include the dates but we need it to 
-        plt.show()
 
     return fill_in_weekends(portfolio_values)

@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt 
 from fill_in_weekends import fill_in_weekends 
 
-def buyopen_sellclose(ticker, start_date, end_date, starting_amount, plot=False):
+def buyopen_sellclose(ticker, start_date, end_date, starting_amount):
     """
     This function takes a ticker, a start date, an end date, a starting amount, and if the user
     wants to plot the output or not. The output of this function is a graph with the x-axis representing
@@ -16,7 +16,7 @@ def buyopen_sellclose(ticker, start_date, end_date, starting_amount, plot=False)
     df = pd.read_csv("data/sample_data.csv")
     df['S1 Return'] = df['Close']/df['Open']
 
-    portfolio_values = dict() # Is a dictionary the right data structure for the portfolio values?
+    portfolio_values = dict() 
     portfolio_value = starting_amount
 
     for index, row in df.iterrows():
@@ -27,8 +27,4 @@ def buyopen_sellclose(ticker, start_date, end_date, starting_amount, plot=False)
     names = list(portfolio_values.keys())
     values = list(portfolio_values.values())
 
-    if plot:
-        plt.plot(range(len(portfolio_values)), values) # plot does not include the dates but we need it to 
-        plt.show()
-    
     return fill_in_weekends(portfolio_values)

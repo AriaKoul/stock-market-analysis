@@ -40,7 +40,7 @@ For example:
 
 Run `python create_plot.py`. This will generate a plot using `matplotlib` and display it on the screen.
 
-![Example Graph](https://i.imgur.com/cFlZNO2.png)
+![Example Graph](https://i.imgur.com/QMqxqM2.png)
 
 
 ## Dependencies
